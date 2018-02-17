@@ -1,0 +1,9 @@
+client_secret.json
+.idea
+.DS_Store
+*.iml
+
+pkg/
+bin/
+
+!src/snippets/
