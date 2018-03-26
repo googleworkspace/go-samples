@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// [START gmail_quickstart]
 package main
 
 import (
@@ -113,3 +114,4 @@ func main() {
 		fmt.Printf("- %s\n", l.Name)
 	}
 }
+// [END gmail_quickstart]

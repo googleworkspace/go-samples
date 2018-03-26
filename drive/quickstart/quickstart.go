@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// [START drive_quickstart]
 package main
 
 import (
@@ -113,3 +114,4 @@ func main() {
 		}
 	}
 }
+// [END drive_quickstart]

@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// [START sheets_quickstart]
 package main
 
 import (
@@ -119,3 +120,4 @@ func main() {
 		}
 	}
 }
+// [END sheets_quickstart]
