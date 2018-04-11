@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START reseller_quickstart]
+// [START admin_sdk_reseller_quickstart]
 package main
 
 import (
@@ -141,4 +141,4 @@ func main() {
 		}
 	}
 }
-// [END reseller_quickstart]
+// [END admin_sdk_reseller_quickstart]

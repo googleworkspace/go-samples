@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START groups_migration_quickstart]
+// [START admin_sdk_groups_migration_quickstart]
 package main
 
 import (
@@ -141,4 +141,4 @@ func main() {
 	// Print group settings.
 	fmt.Printf("%s - %s", r.Email, r.Description)
 }
-// [END groups_migration_quickstart]
+// [END admin_sdk_groups_migration_quickstart]

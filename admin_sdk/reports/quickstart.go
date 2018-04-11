@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START reports_quickstart]
+// [START admin_sdk_reports_quickstart]
 package main
 
 import (
@@ -149,4 +149,4 @@ func main() {
 		}
 	}
 }
-// [END reports_quickstart]
+// [END admin_sdk_reports_quickstart]

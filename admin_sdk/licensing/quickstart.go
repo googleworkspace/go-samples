@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START licensing_quickstart]
+// [START admin_sdk_licensing_quickstart]
 package main
 
 import (
@@ -148,4 +148,4 @@ func main() {
 		}
 	}
 }
-// [END licensing_quickstart]
+// [END admin_sdk_licensing_quickstart]
