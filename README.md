@@ -1,4 +1,4 @@
-# G Suite Go Samples
+# G Suite Go Samples [![Build Status](https://travis-ci.org/gsuitedevs/go-samples.svg?branch=master)](https://travis-ci.org/gsuitedevs/go-samples)
 
 Go samples for [G Suite API](https://developers.google.com/gsuite/) docs.
 
