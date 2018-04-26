@@ -1,0 +1,25 @@
+language: go
+branches:
+  only:
+    - master
+matrix:
+  include:
+    - go: 1.6.x
+    - go: 1.7.x
+    - go: 1.8.x
+    - go: 1.9.x
+before_cache:
+- rm -rf $GOPATH/src/github.com/gsuitedevs/go-samples/*
+- rm -rf $GOPATH/pkg/**/github.com/gsuitedevs/go-samples
+cache:
+  directories:
+    - $GOPATH/src
+    - $GOPATH/pkg
+install:
+# Install all external dependencies, ensuring they are updated.
+- GO_IMPORTS=$(go list -f '{{join .Imports "\n"}}{{"\n"}}{{join .TestImports "\n"}}' ./... | sort | uniq | grep -v go-samples)
+- go get -u -v -d $GO_IMPORTS
+- go install -v $GO_IMPORTS
+- export CI=TRAVIS # for gotest to force colors
+script:
+- travis_wait 20 gotest -p 10 -timeout 20m -v ./...;
