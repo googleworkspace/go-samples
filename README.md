@@ -7,44 +7,17 @@ folder by following the instructions in `quickstart/README.md`.
 
 ## APIs
 
-### Admin SDK
+| | **Apps Script** | **Calendar** | **Classroom** | **Drive V3** | **Gmail** | **Sheets** | **Slides** | **Tasks** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| GoDoc | [![GoDoc](https://godoc.org/google.golang.org/api/script/v1?status.svg)](https://godoc.org/google.golang.org/api/script/v1) | [![GoDoc](https://godoc.org/google.golang.org/api/calendar/v1?status.svg)](https://godoc.org/google.golang.org/api/calendar/v1) | [![GoDoc](https://godoc.org/google.golang.org/api/classroom/v1?status.svg)](https://godoc.org/google.golang.org/api/classroom/v1) | [![GoDoc](https://godoc.org/google.golang.org/api/drive/v3?status.svg)](https://godoc.org/google.golang.org/api/drive/v3) | [![GoDoc](https://godoc.org/google.golang.org/api/gmail/v1?status.svg)](https://godoc.org/google.golang.org/api/gmail/v1) | [![GoDoc](https://godoc.org/google.golang.org/api/sheets/v4?status.svg)](https://godoc.org/google.golang.org/api/sheets/v4) | [![GoDoc](https://godoc.org/google.golang.org/api/slides/v1?status.svg)](https://godoc.org/google.golang.org/api/slides/v1) | [![GoDoc](https://godoc.org/google.golang.org/api/tasks/v1?status.svg)](https://godoc.org/google.golang.org/api/tasks/v1) | 
+| Quickstart | [Link](https://developers.google.com/apps-script/api/quickstart/go) | [Link](https://developers.google.com/calendar/quickstart/go) | [Link](https://developers.google.com/classroom/quickstart/go) | [Link](https://developers.google.com/drive/v3/web/quickstart/go) | [Link](https://developers.google.com/gmail/api/quickstart/go) | [Link](https://developers.google.com/sheets/api/quickstart/go) | [Link](https://developers.google.com/slides/quickstart/go) | [Link](https://developers.google.com/google-apps/tasks/quickstart/go) |
+| Snippets | --- | [Link](https://developers.google.com/calendar/overview) | [Link](https://developers.google.com/classroom/guides/get-started) | [Link](https://developers.google.com/drive/v3/web/about-sdk) | [Link](https://developers.google.com/gmail/api/guides/) | [Link](https://developers.google.com/sheets/api/guides/concepts) | [Link](https://developers.google.com/slides/how-tos/overview) | --- |
+
+### Admin SDK APIs
 
 - [Directory Quickstart](https://developers.google.com/admin-sdk/directory/v1/quickstart/go) [![GoDoc](https://godoc.org/google.golang.org/api/admin/directory/v1?status.svg)](https://godoc.org/google.golang.org/api/admin/directory/v1)
 - [Reports Quickstart](https://developers.google.com/admin-sdk/reports/v1/quickstart/go) [![GoDoc](https://godoc.org/google.golang.org/api/admin/reports/v1?status.svg)](https://godoc.org/google.golang.org/api/admin/reports/v1)
 - [Reseller Quickstart](https://developers.google.com/admin-sdk/reseller/v1/quickstart/go) [![GoDoc](https://godoc.org/google.golang.org/api/reseller/v1?status.svg)](https://godoc.org/google.golang.org/api/reseller/v1)
-
-### Apps Script API [![GoDoc](https://godoc.org/google.golang.org/api/script/v1?status.svg)](https://godoc.org/google.golang.org/api/script/v1)
-
-- [Quickstart](https://developers.google.com/apps-script/api/quickstart/go)
-
-### Calendar [![GoDoc](https://godoc.org/google.golang.org/api/calendar/v1?status.svg)](https://godoc.org/google.golang.org/api/calendar/v1)
-
-- [Quickstart](https://developers.google.com/google-apps/calendar/quickstart/go)
-
-### Classroom [![GoDoc](https://godoc.org/google.golang.org/api/classroom/v1?status.svg)](https://godoc.org/google.golang.org/api/classroom/v1)
-
-- [Quickstart](https://developers.google.com/classroom/quickstart/go)
-
-### Drive V3 [![GoDoc](https://godoc.org/google.golang.org/api/drive/v3?status.svg)](https://godoc.org/google.golang.org/api/drive/v3)
-
-- [Quickstart](https://developers.google.com/drive/v3/web/quickstart/go)
-
-### Gmail [![GoDoc](https://godoc.org/google.golang.org/api/gmail/v1?status.svg)](https://godoc.org/google.golang.org/api/gmail/v1)
-
-- [Quickstart](https://developers.google.com/gmail/api/quickstart/go)
-
-### Sheets [![GoDoc](https://godoc.org/google.golang.org/api/sheets/v4?status.svg)](https://godoc.org/google.golang.org/api/sheets/v4)
-
-- [Quickstart](https://developers.google.com/sheets/api/quickstart/go)
-
-### Slides [![GoDoc](https://godoc.org/google.golang.org/api/slides/v1?status.svg)](https://godoc.org/google.golang.org/api/slides/v1)
-
-- [Quickstart](https://developers.google.com/slides/quickstart/go)
-- [Snippets](https://developers.google.com/slides/how-tos/overview)
-
-### Tasks [![GoDoc](https://godoc.org/google.golang.org/api/tasks/v1?status.svg)](https://godoc.org/google.golang.org/api/tasks/v1)
-
-- [Quickstart](https://developers.google.com/google-apps/tasks/quickstart/go)
 
 ## Format
 
