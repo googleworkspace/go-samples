@@ -9,7 +9,7 @@ import (
 
 func createPresentation() string {
 	slidesService := getServices().Slides
-	// [START createPresentation]
+	// [START slides_create_presentation]
 	// Create a presentation and request a PresentationId.
 	p := &slides.Presentation{
 		Title: "Title",
@@ -21,13 +21,13 @@ func createPresentation() string {
 		log.Fatalf("Unable to create presentation. %v", err)
 	}
 	fmt.Printf("Created presentation with ID: %s", presentation.PresentationId)
-	// [END createPresentation]
+	// [END slides_create_presentation]
 	return presentation.PresentationId
 }
 
 func copyPresentation(id string, title string) string {
 	driveService := getServices().Drive
-	// [START copyPresentation]
+	// [START slides_copy_presentation]
 	// Copy a presentation.
 	file := drive.File{
 		Title: title,
@@ -37,13 +37,13 @@ func copyPresentation(id string, title string) string {
 		log.Fatalf("Unable to copy presentation. %v", err)
 	}
 	presentationCopyId := presentationCopyFile.Id
-	// [END copyPresentation]
+	// [END slides_copy_presentation]
 	return presentationCopyId
 }
 
 func createSlide(presentationId string) slides.BatchUpdatePresentationResponse {
 	slidesService := getServices().Slides
-	// [START createSlide]
+	// [START slides_create_slide]
 	// Add a slide at index 1 using the predefined "TITLE_AND_TWO_COLUMNS" layout
 	// and the ID "MyNewSlide_001".
 	slideId := "MyNewSlide_001"
@@ -69,13 +69,13 @@ func createSlide(presentationId string) slides.BatchUpdatePresentationResponse {
 		log.Fatalf("Unable to create slide. %v", err)
 	}
 	fmt.Printf("Created slide with ID: %s", response.Replies[0].CreateSlide.ObjectId)
-	// [END createSlide]
+	// [END slides_create_slide]
 	return *response
 }
 
 func createTextBoxWithText(presentationId string, slideId string) slides.BatchUpdatePresentationResponse {
 	slidesService := getServices().Slides
-	// [START createTextBoxWithText]
+	// [START slides_create_textbox_with_text]
 	// Create a new square text box, using a supplied object ID.
 	textBoxId := "MyTextBox_01"
 	pt350 := slides.Dimension{
@@ -120,14 +120,14 @@ func createTextBoxWithText(presentationId string, slideId string) slides.BatchUp
 		log.Errorf("Unable to create text box. %v", err)
 	}
 	fmt.Printf("Created text box with ID: %s", response.Replies[0].CreateShape.ObjectId)
-	// [END createTextBoxWithText]
+	// [END slides_create_textbox_with_text]
 	return *response
 }
 
 func createImage(presentationId string, slideId string) slides.BatchUpdatePresentationResponse {
 	slidesService := getServices().Slides
 	imageURL := "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-	// [START createImage]
+	// [START slides_create_image]
 	// Temporarily upload a local image file to Drive, in order to obtain a URL
 	// for the image. Alternatively, you can provide the Slides service a URL of
 	// an already hosted image.
@@ -168,7 +168,7 @@ func createImage(presentationId string, slideId string) slides.BatchUpdatePresen
 	} else {
 		fmt.Printf("Created image with ID: %s", response.Replies[0].CreateImage.ObjectId)
 	}
-	// [END createImage]
+	// [END slides_create_image]
 	return *response
 }
 
@@ -178,7 +178,7 @@ func textMerging(templatePresentationId string, dataSpreadsheetId string) []slid
 	sheetsService := getServices().Sheets
 	responses := make([]slides.BatchUpdatePresentationResponse, 0)
 
-	// [START textMerging]
+	// [START slides_text_merging]
 	// Use the Sheets API to load data, one record per row.
 	dataRangeNotation := "Customers!A2:M6"
 	sheetsResponse, _ := sheetsService.Spreadsheets.Values.Get(dataSpreadsheetId, dataRangeNotation).Do()
@@ -243,7 +243,7 @@ func textMerging(templatePresentationId string, dataSpreadsheetId string) []slid
 		fmt.Printf("Created merged presentation for %s with ID %s\n", customerName, presentationId)
 		fmt.Printf("Replaced %d text instances.\n", numReplacements)
 	}
-	// [END textMerging]
+	// [END slides_text_merging]
 	return responses
 }
 
@@ -253,7 +253,7 @@ func imageMerging(templatePresentationId string, imageURL string, customerName s
 	logoURL := imageURL
 	customerGraphicURL := imageURL
 
-	// [START imageMerging]
+	// [START slides_image_merging]
 	// Duplicate the template presentation using the Drive API.
 	copyTitle := customerName + " presentation"
 	file := drive.File{
@@ -294,13 +294,13 @@ func imageMerging(templatePresentationId string, imageURL string, customerName s
 	}
 	fmt.Printf("Created merged presentation with ID %s\n", presentationId)
 	fmt.Printf("Replaced %d shapes instances with images.\n", numReplacements)
-	// [END imageMerging]
+	// [END slides_image_merging]
 	return *response
 }
 
 func simpleTextReplace(presentationId string, shapeId string, replacementText string) slides.BatchUpdatePresentationResponse {
 	slidesService := getServices().Slides
-	// [START simpleTextReplace]
+	// [START slides_simple_text_replace]
 	// Remove existing text in the shape, then insert the new text.
 	requests := []*slides.Request{{
 		DeleteText: &slides.DeleteTextRequest{
@@ -321,13 +321,13 @@ func simpleTextReplace(presentationId string, shapeId string, replacementText st
 	body := &slides.BatchUpdatePresentationRequest{Requests: requests}
 	response, _ := slidesService.Presentations.BatchUpdate(presentationId, body).Do()
 	fmt.Printf("Replaced text in shape with ID: %s", shapeId)
-	// [END simpleTextReplace]
+	// [END slides_simple_text_replace]
 	return *response
 }
 
 func textStyleUpdate(presentationId string, shapeId string) slides.BatchUpdatePresentationResponse {
 	slidesService := getServices().Slides
-	// [START textStyleUpdate]
+	// [START slides_text_style_update]
 	// Update the text style so that the first 5 characters are bolded
 	// and italicized, and the next 5 are displayed in blue 14 pt Times
 	// New Roman font, and the next five are hyperlinked.
@@ -393,13 +393,13 @@ func textStyleUpdate(presentationId string, shapeId string) slides.BatchUpdatePr
 	body := &slides.BatchUpdatePresentationRequest{Requests: requests}
 	response, _ := slidesService.Presentations.BatchUpdate(presentationId, body).Do()
 	fmt.Printf("Updated text style for shape with ID: %s", shapeId)
-	// [END textStyleUpdate]
+	// [END slides_text_style_update]
 	return *response
 }
 
 func createBulletedText(presentationId string, shapeId string) slides.BatchUpdatePresentationResponse {
 	slidesService := getServices().Slides
-	// [START createBulletedText]
+	// [START slides_create_bulleted_text]
 	// Add arrow-diamond-disc bullets to all text in the shape.
 	requests := []*slides.Request{{
 		CreateParagraphBullets: &slides.CreateParagraphBulletsRequest{
@@ -415,13 +415,13 @@ func createBulletedText(presentationId string, shapeId string) slides.BatchUpdat
 	body := &slides.BatchUpdatePresentationRequest{Requests: requests}
 	response, _ := slidesService.Presentations.BatchUpdate(presentationId, body).Do()
 	fmt.Printf("Added a linked Sheets chart with ID %s", shapeId)
-	// [END textStyleUpdate]
+	// [END slides_create_bulleted_text]
 	return *response
 }
 
 func createSheetsChart(presentationId string, pageId string, spreadsheetId string, sheetChartId int64) slides.BatchUpdatePresentationResponse {
 	slidesService := getServices().Slides
-	// [START createSheetsChart]
+	// [START slides_create_sheets_chart]
 	// Embed a Sheets chart (indicated by the spreadsheetId and sheetChartId) onto
 	// a page in the presentation. Setting the linking mode as "LINKED" allows the
 	// chart to be refreshed if the Sheets version is updated.
@@ -454,13 +454,13 @@ func createSheetsChart(presentationId string, pageId string, spreadsheetId strin
 	body := &slides.BatchUpdatePresentationRequest{Requests: requests}
 	response, _ := slidesService.Presentations.BatchUpdate(presentationId, body).Do()
 	fmt.Printf("Added a linked Sheets chart with ID %s", presentationChartId)
-	// [END createSheetsChart]
+	// [END slides_create_sheets_chart]
 	return *response
 }
 
 func createRefreshSheetsChart(presentationId string, presentationChartId string) slides.BatchUpdatePresentationResponse {
 	slidesService := getServices().Slides
-	// [START refreshSheetsChart]
+	// [START slides_refresh_sheets_chart]
 	requests := []*slides.Request{{
 		RefreshSheetsChart: &slides.RefreshSheetsChartRequest{
 			ObjectId: presentationChartId,
@@ -471,6 +471,6 @@ func createRefreshSheetsChart(presentationId string, presentationChartId string)
 	body := &slides.BatchUpdatePresentationRequest{Requests: requests}
 	response, _ := slidesService.Presentations.BatchUpdate(presentationId, body).Do()
 	fmt.Printf("Refreshed a linked Sheets chart with ID %s", presentationChartId)
-	// [END createSheetsChart]
+	// [END slides_refresh_sheets_chart]
 	return *response
 }
