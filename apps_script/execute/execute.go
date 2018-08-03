@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START apps_script_execute]
+// [START apps_script_api_execute]
 scriptId := "ENTER_YOUR_SCRIPT_ID_HERE"
 client := getClient(ctx, config)
 
@@ -68,4 +68,4 @@ if resp.Error != nil {
     }
   }
 }
-// [END apps_script_execute]
+// [END apps_script_api_execute]
