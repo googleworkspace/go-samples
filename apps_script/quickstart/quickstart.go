@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START apps_script_quickstart]
+// [START apps_script_api_quickstart]
 package main
 
 import (
@@ -127,4 +127,4 @@ func main() {
 	}
 	log.Printf("https://script.google.com/d/%v/edit", updateContentRes.ScriptId)
 }
-// [END apps_script_quickstart]
+// [END apps_script_api_quickstart]
