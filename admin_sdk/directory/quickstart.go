@@ -104,7 +104,7 @@ func main() {
 	r, err := srv.Users.List().Customer("my_customer").MaxResults(10).
 		OrderBy("email").Do()
 	if err != nil {
-		log.Fatalf("Unable to retrieve users in domain.", err)
+		log.Fatalf("Unable to retrieve users in domain: %v", err)
 	}
 
 	if len(r.Users) == 0 {
