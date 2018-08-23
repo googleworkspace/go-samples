@@ -22,4 +22,5 @@ install:
 - go install -v $GO_IMPORTS
 - export CI=TRAVIS # for gotest to force colors
 script:
-- travis_wait 20 gotest -p 10 -timeout 20m -v ./...;
+- go vet ./...
+# - travis_wait 20 gotest -p 10 -timeout 20m -v ./...;
