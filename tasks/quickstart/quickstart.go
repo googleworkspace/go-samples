@@ -103,7 +103,7 @@ func main() {
 
 	r, err := srv.Tasklists.List().MaxResults(10).Do()
 	if err != nil {
-		log.Fatalf("Unable to retrieve task lists.", err)
+		log.Fatalf("Unable to retrieve task lists. %v", err)
 	}
 
 	fmt.Println("Task Lists:")

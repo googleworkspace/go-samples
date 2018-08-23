@@ -103,7 +103,7 @@ func main() {
 
 	r, err := srv.Subscriptions.List().MaxResults(10).Do()
 	if err != nil {
-		log.Fatalf("Unable to retrieve subscriptions.", err)
+		log.Fatalf("Unable to retrieve subscriptions. %v", err)
 	}
 
 	if len(r.Subscriptions) == 0 {

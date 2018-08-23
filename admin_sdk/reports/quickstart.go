@@ -104,7 +104,7 @@ func main() {
 
 	r, err := srv.Activities.List("all", "login").MaxResults(10).Do()
 	if err != nil {
-		log.Fatalf("Unable to retrieve logins to domain.", err)
+		log.Fatalf("Unable to retrieve logins to domain. %v", err)
 	}
 
 	if len(r.Items) == 0 {

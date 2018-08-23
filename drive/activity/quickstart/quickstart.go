@@ -105,7 +105,7 @@ func main() {
   r, err := srv.Activities.List().Source("drive.google.com").
     DriveAncestorId("root").PageSize(10).Do()
   if err != nil {
-    log.Fatalf("Unable to retrieve list of activiites.", err)
+    log.Fatalf("Unable to retrieve list of activiites. %v", err)
   }
 
   fmt.Println("Recent Activity:")
