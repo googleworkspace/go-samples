@@ -128,4 +128,5 @@ func main() {
 	}
 	log.Printf("https://script.google.com/d/%v/edit", updateContentRes.ScriptId)
 }
+
 // [END apps_script_api_quickstart]

@@ -116,4 +116,5 @@ func main() {
 		}
 	}
 }
+
 // [END admin_sdk_directory_quickstart]

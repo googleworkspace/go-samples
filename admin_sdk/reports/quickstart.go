@@ -123,4 +123,5 @@ func main() {
 		}
 	}
 }
+
 // [END admin_sdk_reports_quickstart]
