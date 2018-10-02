@@ -2,7 +2,7 @@
 
 Go samples for [G Suite API](https://developers.google.com/gsuite/) docs.
 
-To run the quickstarts, download a `client_secret.json` file in the `quickstart`
+To run the quickstarts, download a `credentials.json` file in the `quickstart`
 folder by following the instructions in `quickstart/README.md`.
 
 ## APIs
