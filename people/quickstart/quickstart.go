@@ -101,7 +101,8 @@ func main() {
 		log.Fatalf("Unable to create people Client %v", err)
 	}
 
-	r, err := srv.People.Connections.List("people/me").PageSize(10).Do()
+	r, err := srv.People.Connections.List("people/me").PageSize(10).
+		PersonFields("names,emailAddresses").Do()
 	if err != nil {
 		log.Fatalf("Unable to retrieve people. %v", err)
 	}
