@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START classroom_create_course]
 package main
 
 import (
@@ -100,7 +99,7 @@ func main() {
         if err != nil {
                 log.Fatalf("Unable to create classroom Client %v", err)
         }
-// [START classroom_create_course]
+        // [START classroom_create_course]
         c := &classroom.Course{
                 Name: "10th Grade Biology",
                 Section: "Period 2",
@@ -114,6 +113,6 @@ func main() {
         if err != nil {
                 log.Fatalf("Course unable to be created %v", err)
         }
+        // [END classroom_create_course]
         fmt.Printf("Created course: %v", course.Id)
-// [END classroom_create_course]
 }
