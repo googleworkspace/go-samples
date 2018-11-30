@@ -100,6 +100,7 @@ func main() {
         if err != nil {
                 log.Fatalf("Unable to create classroom Client %v", err)
         }
+// [START classroom_create_course]
         c := &classroom.Course{
                 Name: "10th Grade Biology",
                 Section: "Period 2",
@@ -115,5 +116,4 @@ func main() {
         }
         fmt.Printf("Created course: %v", course.Id)
 // [END classroom_create_course]
-
 }
