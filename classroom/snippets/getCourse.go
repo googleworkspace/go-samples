@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START classroom_get_course]
 package main
 
 import (
@@ -95,7 +94,7 @@ func main() {
                 log.Fatalf("Unable to parse client secret file to config: %v", err)
         }
         client := getClient(config)
-
+        // [START classroom_get_course]
         srv, err := classroom.New(client)
         if err != nil {
                 log.Fatalf("Unable to create classroom Client %v", err)
@@ -105,6 +104,6 @@ func main() {
         if err != nil {
                 log.Fatalf("Course unable to be retrieved %v", err)
         }
+        // [END classroom_get_course]
         fmt.Printf("Course with ID %v found.", course.Id)
 }
-// [END classroom_get_course]
