@@ -11,6 +11,7 @@ Download the `credentials.json` file to this directory by following the steps in
 ```
 go get -u google.golang.org/api/gmail/v1
 go get -u golang.org/x/oauth2/...
+go get -u cloud.google.com/go/compute/metadata
 ```
 
 ## Run
