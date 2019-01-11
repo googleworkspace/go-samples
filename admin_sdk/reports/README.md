@@ -10,7 +10,7 @@ Download the `credentials.json` file to this Reports by following the steps in t
 
 ```
 go get -u google.golang.org/api/admin/reports/v1
-go get -u golang.org/x/oauth2/...
+go get -u golang.org/x/oauth2/google
 ```
 
 ## Run
