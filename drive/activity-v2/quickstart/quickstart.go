@@ -156,7 +156,7 @@ func getActorInfo(actor *driveactivity.Actor) string {
 // Returns information for a list of actors.
 func getActorsInfo(actors []*driveactivity.Actor) []string {
 	actorsInfo := make([]string, len(actors))
-	for i := 0; i < len(actors); i++ {
+	for i := range actors {
 		actorsInfo[i] = getActorInfo(actors[i])
 	}
 	return actorsInfo
@@ -183,7 +183,7 @@ func getTargetInfo(target *driveactivity.Target) string {
 // Returns information for a list of targets.
 func getTargetsInfo(targets []*driveactivity.Target) []string {
 	targetsInfo := make([]string, len(targets))
-	for i := 0; i < len(targets); i++ {
+	for i := range targets {
 		targetsInfo[i] = getTargetInfo(targets[i])
 	}
 	return targetsInfo
