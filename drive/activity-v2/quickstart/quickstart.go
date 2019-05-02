@@ -167,8 +167,8 @@ func getTargetInfo(target *driveactivity.Target) string {
 	if target.DriveItem != nil {
 		return fmt.Sprintf("driveItem:\"%s\"", target.DriveItem.Title)
 	}
-	if target.TeamDrive != nil {
-		return fmt.Sprintf("teamDrive:\"%s\"", target.TeamDrive.Title)
+	if target.Drive != nil {
+		return fmt.Sprintf("drive:\"%s\"", target.Drive.Title)
 	}
 	if target.FileComment != nil {
 		parent := target.FileComment.Parent
