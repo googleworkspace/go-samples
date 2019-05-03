@@ -4,10 +4,8 @@ branches:
     - master
 matrix:
   include:
-    - go: 1.6.x
-    - go: 1.7.x
-    - go: 1.8.x
-    - go: 1.9.x
+    - go: 1.11.x
+    - go: 1.12.x
 before_cache:
 - rm -rf $GOPATH/src/github.com/gsuitedevs/go-samples/*
 - rm -rf $GOPATH/pkg/**/github.com/gsuitedevs/go-samples
