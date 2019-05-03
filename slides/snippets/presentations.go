@@ -2,9 +2,9 @@ package snippets
 
 import (
 	"fmt"
+	"log"
 	"google.golang.org/api/drive/v2"
 	"google.golang.org/api/slides/v1"
-	"log"
 )
 
 func createPresentation() string {
@@ -117,7 +117,7 @@ func createTextBoxWithText(presentationId string, slideId string) slides.BatchUp
 	}
 	response, err := slidesService.Presentations.BatchUpdate(presentationId, body).Do()
 	if err != nil {
-		log.Errorf("Unable to create text box. %v", err)
+		log.Printf("Unable to create text box. %v", err)
 	}
 	fmt.Printf("Created text box with ID: %s", response.Replies[0].CreateShape.ObjectId)
 	// [END slides_create_textbox_with_text]
@@ -288,7 +288,7 @@ func imageMerging(templatePresentationId string, imageURL string, customerName s
 	response, _ := slidesService.Presentations.BatchUpdate(presentationId, body).Do()
 
 	// Count total number of replacements made.
-	numReplacements := 0
+	var numReplacements int64 = 0
 	for _, resp := range response.Replies {
 		numReplacements += resp.ReplaceAllShapesWithImage.OccurrencesChanged
 	}
