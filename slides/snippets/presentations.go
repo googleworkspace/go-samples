@@ -128,12 +128,6 @@ func createImage(presentationId string, slideId string) slides.BatchUpdatePresen
 	slidesService := getServices().Slides
 	imageURL := "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
 	// [START slides_create_image]
-	// Temporarily upload a local image file to Drive, in order to obtain a URL
-	// for the image. Alternatively, you can provide the Slides service a URL of
-	// an already hosted image.
-	//
-	// We will use an existing image under the variable: imageURL.
-	//
 	// Create a new image, using the supplied object ID, with content downloaded from imageURL.
 	imageId := "MyImageId_01"
 	emu4M := slides.Dimension{Magnitude: 4000000, Unit: "EMU"}
