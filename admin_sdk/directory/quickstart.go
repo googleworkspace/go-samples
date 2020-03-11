@@ -28,7 +28,8 @@ import (
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
-	"google.golang.org/api/admin/directory/v1"
+	admin "google.golang.org/api/admin/directory/v1"
+	"google.golang.org/api/option"
 )
 
 // Retrieve a token, saves the token, then returns the generated client.
@@ -99,7 +100,7 @@ func main() {
 	}
 	client := getClient(config)
 
-	srv, err := admin.New(client)
+	srv, err := admin.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Unable to retrieve directory Client %v", err)
 	}

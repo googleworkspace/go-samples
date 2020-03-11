@@ -2,9 +2,9 @@ package snippets
 
 import (
 	"fmt"
-	"log"
 	"google.golang.org/api/drive/v2"
 	"google.golang.org/api/slides/v1"
+	"log"
 )
 
 func createPresentation() string {
