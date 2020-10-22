@@ -1,6 +1,6 @@
-# G Suite Go Samples [![Build Status](https://travis-ci.org/gsuitedevs/go-samples.svg?branch=master)](https://travis-ci.org/gsuitedevs/go-samples)
+# Google Workspace Go Samples [![Build Status](https://travis-ci.org/gsuitedevs/go-samples.svg?branch=master)](https://travis-ci.org/gsuitedevs/go-samples)
 
-Go samples for [G Suite API](https://developers.google.com/gsuite/) docs.
+Go samples for [Google Workspace APIs](https://developers.google.com/gsuite/) docs.
 
 To run the quickstarts, download a `credentials.json` file in the `quickstart`
 folder by following the instructions in `quickstart/README.md`.
