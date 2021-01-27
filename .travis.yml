@@ -7,8 +7,8 @@ matrix:
     - go: 1.11.x
     - go: 1.12.x
 before_cache:
-- rm -rf $GOPATH/src/github.com/gsuitedevs/go-samples/*
-- rm -rf $GOPATH/pkg/**/github.com/gsuitedevs/go-samples
+- rm -rf $GOPATH/src/github.com/googleworkspace/go-samples/*
+- rm -rf $GOPATH/pkg/**/github.com/googleworkspace/go-samples
 cache:
   directories:
     - $GOPATH/src
