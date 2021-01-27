@@ -1,4 +1,4 @@
-# Google Workspace Go Samples [![Build Status](https://travis-ci.org/gsuitedevs/go-samples.svg?branch=master)](https://travis-ci.org/gsuitedevs/go-samples)
+# Google Workspace Go Samples [![Build Status](https://travis-ci.org/googleworkspace/go-samples.svg?branch=master)](https://travis-ci.org/googleworkspace/go-samples)
 
 Go samples for [Google Workspace APIs](https://developers.google.com/gsuite/) docs.
 
