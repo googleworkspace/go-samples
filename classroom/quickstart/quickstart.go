@@ -29,6 +29,7 @@ import (
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/classroom/v1"
+	"google.golang.org/api/option"
 )
 
 // Retrieve a token, saves the token, then returns the generated client.
@@ -99,7 +100,7 @@ func main() {
 	}
 	client := getClient(config)
 
-	srv, err := classroom.New(client)
+	srv, err := classroom.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Unable to create classroom Client %v", err)
 	}

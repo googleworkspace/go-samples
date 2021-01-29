@@ -28,6 +28,7 @@ import (
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
+	"google.golang.org/api/option"
 	"google.golang.org/api/slides/v1"
 )
 
@@ -99,7 +100,7 @@ func main() {
 	}
 	client := getClient(config)
 
-	srv, err := slides.New(client)
+	srv, err := slides.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Unable to retrieve Slides client: %v", err)
 	}
