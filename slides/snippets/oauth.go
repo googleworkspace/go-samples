@@ -2,11 +2,12 @@ package snippets
 
 import (
 	"log"
+
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2/google"
-	"google.golang.org/api/drive/v2"
-	"google.golang.org/api/sheets/v4"
-	"google.golang.org/api/slides/v1"
+	drive "google.golang.org/api/drive/v2"
+	sheets "google.golang.org/api/sheets/v4"
+	slides "google.golang.org/api/slides/v1"
 )
 
 // A group of Google services.

@@ -17,31 +17,32 @@
 package main
 
 import (
-        "fmt"
-        "google.golang.org/api/classroom/v1"
-        "log"
-        "net/http"
+	"fmt"
+	"log"
+	"net/http"
+
+	classroom "google.golang.org/api/classroom/v1"
 )
 
 func createCourse(client *http.Client) {
-        srv, err := classroom.New(client)
-        if err != nil {
-                log.Fatalf("Unable to create classroom Client %v", err)
-        }
-        // [START classroom_create_course]
-        c := &classroom.Course{
-                Name: "10th Grade Biology",
-                Section: "Period 2",
-                DescriptionHeading: "Welcome to 10th Grade Biology",
-                Description: "We'll be learning about about the structure of living creatures from a combination of textbooks, guest lectures, and lab work. Expect to be excited!",
-                Room: "301",
-                OwnerId: "me",
-                CourseState: "PROVISIONED",
-        }
-        course, err := srv.Courses.Create(c).Do()
-        if err != nil {
-                log.Fatalf("Course unable to be created %v", err)
-        }
-        // [END classroom_create_course]
-        fmt.Printf("Created course: %v", course.Id)
+	srv, err := classroom.New(client)
+	if err != nil {
+		log.Fatalf("Unable to create classroom Client %v", err)
+	}
+	// [START classroom_create_course]
+	c := &classroom.Course{
+		Name:               "10th Grade Biology",
+		Section:            "Period 2",
+		DescriptionHeading: "Welcome to 10th Grade Biology",
+		Description:        "We'll be learning about about the structure of living creatures from a combination of textbooks, guest lectures, and lab work. Expect to be excited!",
+		Room:               "301",
+		OwnerId:            "me",
+		CourseState:        "PROVISIONED",
+	}
+	course, err := srv.Courses.Create(c).Do()
+	if err != nil {
+		log.Fatalf("Course unable to be created %v", err)
+	}
+	// [END classroom_create_course]
+	fmt.Printf("Created course: %v", course.Id)
 }
