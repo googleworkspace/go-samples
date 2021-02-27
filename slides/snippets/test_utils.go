@@ -1,8 +1,9 @@
 package snippets
 
 import (
-	"google.golang.org/api/slides/v1"
 	"log"
+
+	slides "google.golang.org/api/slides/v1"
 )
 
 func deleteFileOnCleanup(id string) {

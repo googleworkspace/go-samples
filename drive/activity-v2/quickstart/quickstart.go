@@ -30,7 +30,7 @@ import (
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
-	"google.golang.org/api/driveactivity/v2"
+	driveactivity "google.golang.org/api/driveactivity/v2"
 )
 
 // Retrieve a token, saves the token, then returns the generated client.

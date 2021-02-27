@@ -17,40 +17,41 @@
 package main
 
 import (
-        "fmt"
-        "golang.org/x/oauth2/google"
-        "google.golang.org/api/classroom/v1"
-        "io/ioutil"
-        "log"
-        "net/http"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+
+	"golang.org/x/oauth2/google"
+	classroom "google.golang.org/api/classroom/v1"
 )
 
 func getCourse(client *http.Client) {
-        // [START classroom_get_course]
-        srv, err := classroom.New(client)
-        if err != nil {
-                log.Fatalf("Unable to create classroom Client %v", err)
-        }
-        id := "123456"
-        course, err := srv.Courses.Get(id).Do()
-        if err != nil {
-                log.Fatalf("Course unable to be retrieved %v", err)
-        }
-        // [END classroom_get_course]
-        fmt.Printf("Course with ID %v found.", course.Id)
+	// [START classroom_get_course]
+	srv, err := classroom.New(client)
+	if err != nil {
+		log.Fatalf("Unable to create classroom Client %v", err)
+	}
+	id := "123456"
+	course, err := srv.Courses.Get(id).Do()
+	if err != nil {
+		log.Fatalf("Course unable to be retrieved %v", err)
+	}
+	// [END classroom_get_course]
+	fmt.Printf("Course with ID %v found.", course.Id)
 }
 
 func main() {
-        b, err := ioutil.ReadFile("credentials.json")
-        if err != nil {
-                log.Fatalf("Unable to read client secret file: %v", err)
-        }
+	b, err := ioutil.ReadFile("credentials.json")
+	if err != nil {
+		log.Fatalf("Unable to read client secret file: %v", err)
+	}
 
-        // If modifying these scopes, delete your previously saved token.json.
-        config, err := google.ConfigFromJSON(b, classroom.ClassroomCoursesScope)
-        if err != nil {
-                log.Fatalf("Unable to parse client secret file to config: %v", err)
-        }
-        client := getClient(config)
-        getCourse(client)
+	// If modifying these scopes, delete your previously saved token.json.
+	config, err := google.ConfigFromJSON(b, classroom.ClassroomCoursesScope)
+	if err != nil {
+		log.Fatalf("Unable to parse client secret file to config: %v", err)
+	}
+	client := getClient(config)
+	getCourse(client)
 }
