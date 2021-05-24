@@ -8,9 +8,9 @@ Download the `credentials.json` file to this directory by following the steps in
 
 ## Install
 
-```
-go get -u google.golang.org/api/people/v1
-go get -u golang.org/x/oauth2/google
+```bash
+go get google.golang.org/api/people/v1
+go get golang.org/x/oauth2/google
 ```
 
 ## Run
