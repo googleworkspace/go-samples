@@ -27,6 +27,7 @@ import (
 
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
+	"google.golang.org/api/option"
 	"google.golang.org/api/script/v1"
 )
 
@@ -87,7 +88,7 @@ func saveToken(path string, token *oauth2.Token) {
 
 func main() {
 	// [START apps_script_api_execute]
-
+	ctx := context.Background()
 	scriptId := "ENTER_YOUR_SCRIPT_ID_HERE"
 
 	b, err := ioutil.ReadFile("credentials.json")
@@ -104,7 +105,7 @@ func main() {
 	client := getClient(config)
 
 	// Generate a service object.
-	srv, err := script.New(client)
+	srv, err := script.NewService(ctx, option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Unable to retrieve script Client %v", err)
 	}

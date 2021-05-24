@@ -29,6 +29,7 @@ import (
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/classroom/v1"
+	"google.golang.org/api/option"
 )
 
 // Retrieve a token, saves the token, then returns the generated client.
@@ -87,6 +88,7 @@ func saveToken(path string, token *oauth2.Token) {
 }
 
 func main() {
+	ctx := context.Background()
 	b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read credentials file: %v", err)
@@ -99,7 +101,7 @@ func main() {
 	}
 	client := getClient(config)
 
-	srv, err := classroom.New(client)
+	srv, err := classroom.NewService(ctx, option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Unable to create classroom Client %v", err)
 	}

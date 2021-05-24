@@ -28,6 +28,7 @@ import (
 
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
+	"google.golang.org/api/option"
 	"google.golang.org/api/tasks/v1"
 )
 
@@ -87,6 +88,7 @@ func saveToken(path string, token *oauth2.Token) {
 }
 
 func main() {
+	ctx := context.Background()
 	b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
@@ -99,7 +101,7 @@ func main() {
 	}
 	client := getClient(config)
 
-	srv, err := tasks.New(client)
+	srv, err := tasks.NewService(ctx, option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Unable to retrieve tasks Client %v", err)
 	}
