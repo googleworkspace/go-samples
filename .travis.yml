@@ -5,19 +5,17 @@ branches:
 matrix:
   include:
     - go: 1.11.x
-    - go: 1.12.x
+    - go: 1.16.x
+env:
+  - GO111MODULE=on
 before_cache:
-- rm -rf $GOPATH/src/github.com/googleworkspace/go-samples/*
 - rm -rf $GOPATH/pkg/**/github.com/googleworkspace/go-samples
 cache:
   directories:
-    - $GOPATH/src
     - $GOPATH/pkg
 install:
 # Install all external dependencies, ensuring they are updated.
-- GO_IMPORTS=$(go list -f '{{join .Imports "\n"}}{{"\n"}}{{join .TestImports "\n"}}' ./... | sort | uniq | grep -v go-samples)
-- go get -u -v -d $GO_IMPORTS
-- go install -v $GO_IMPORTS
+- go mod download
 - export CI=TRAVIS # for gotest to force colors
 script:
 - go vet ./...
