@@ -1,10 +1,12 @@
 package snippets
 
 import (
+	"context"
 	"log"
-	"golang.org/x/net/context"
+
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/drive/v2"
+	"google.golang.org/api/option"
 	"google.golang.org/api/sheets/v4"
 	"google.golang.org/api/slides/v1"
 )
@@ -27,15 +29,15 @@ func getServices() *Services {
 	if err != nil {
 		log.Fatalf("Error creating Google client: %v", err)
 	}
-	driveService, err := drive.New(client)
+	driveService, err := drive.NewService(ctx, option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Error creating Drive client: %v", err)
 	}
-	slidesService, err := slides.New(client)
+	slidesService, err := slides.NewService(ctx, option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Error creating Slides client: %v", err)
 	}
-	sheetsService, err := sheets.New(client)
+	sheetsService, err := sheets.NewService(ctx, option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Error creating Sheets client: %v", err)
 	}
