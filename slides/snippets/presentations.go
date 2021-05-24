@@ -3,6 +3,7 @@ package snippets
 import (
 	"fmt"
 	"log"
+
 	"google.golang.org/api/drive/v2"
 	"google.golang.org/api/slides/v1"
 )
@@ -330,8 +331,8 @@ func textStyleUpdate(presentationId string, shapeId string) slides.BatchUpdatePr
 			ObjectId: shapeId,
 			TextRange: &slides.Range{
 				Type:            "FIXED_RANGE",
-				StartIndex:      0,
-				EndIndex:        5,
+				StartIndex:      ptrInt64(0),
+				EndIndex:        ptrInt64(5),
 				ForceSendFields: []string{"StartIndex"},
 			},
 			Style: &slides.TextStyle{
@@ -345,8 +346,8 @@ func textStyleUpdate(presentationId string, shapeId string) slides.BatchUpdatePr
 			ObjectId: shapeId,
 			TextRange: &slides.Range{
 				Type:       "FIXED_RANGE",
-				StartIndex: 5,
-				EndIndex:   10,
+				StartIndex: ptrInt64(5),
+				EndIndex:   ptrInt64(10),
 			},
 			Style: &slides.TextStyle{
 				FontFamily: "Times New Roman",
@@ -371,8 +372,8 @@ func textStyleUpdate(presentationId string, shapeId string) slides.BatchUpdatePr
 			ObjectId: shapeId,
 			TextRange: &slides.Range{
 				Type:       "FIXED_RANGE",
-				StartIndex: 10,
-				EndIndex:   15,
+				StartIndex: ptrInt64(10),
+				EndIndex:   ptrInt64(15),
 			},
 			Style: &slides.TextStyle{
 				Link: &slides.Link{
@@ -389,6 +390,10 @@ func textStyleUpdate(presentationId string, shapeId string) slides.BatchUpdatePr
 	fmt.Printf("Updated text style for shape with ID: %s", shapeId)
 	// [END slides_text_style_update]
 	return *response
+}
+
+func ptrInt64(i int64) *int64 {
+	return &i
 }
 
 func createBulletedText(presentationId string, shapeId string) slides.BatchUpdatePresentationResponse {
