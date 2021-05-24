@@ -1,8 +1,9 @@
 package snippets
 
 import (
+	"context"
 	"log"
-	"golang.org/x/net/context"
+
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/drive/v2"
 	"google.golang.org/api/sheets/v4"

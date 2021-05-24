@@ -17,15 +17,16 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/oauth2/google"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
-	"golang.org/x/net/context"
+
 	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/google"
 	"google.golang.org/api/script/v1"
 )
 
@@ -84,7 +85,6 @@ func saveToken(path string, token *oauth2.Token) {
 	json.NewEncoder(f).Encode(token)
 }
 
-
 func main() {
 	// [START apps_script_api_execute]
 
@@ -126,7 +126,7 @@ func main() {
 		// The values of this map are the script's 'errorMessage' and
 		// 'errorType', and an array of stack trace elements (which also need to
 		// be cast as maps).
-		var details map[string]interface{};
+		var details map[string]interface{}
 		json.Unmarshal(resp.Error.Details[0], &details)
 		fmt.Printf("Script details message: %s\n", details["errorMessage"])
 
@@ -143,7 +143,7 @@ func main() {
 		// based upon what types the Apps Script function returns. Here, the
 		// function returns an Apps Script Object with String keys and values, so
 		// must be cast into a map (folderSet).
-		var r map[string]interface{};
+		var r map[string]interface{}
 		json.Unmarshal(resp.Response, &r)
 		folderSet := r["result"].(map[string]interface{})
 		if len(folderSet) == 0 {

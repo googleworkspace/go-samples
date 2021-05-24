@@ -1,13 +1,14 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"golang.org/x/oauth2"
 	"log"
 	"net/http"
 	"os"
+
+	"golang.org/x/oauth2"
 )
 
 // Retrieve a token, saves the token, then returns the generated client.
