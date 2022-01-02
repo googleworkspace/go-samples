@@ -24,6 +24,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 
 	"golang.org/x/oauth2"
@@ -56,8 +57,11 @@ func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 	if _, err := fmt.Scan(&authCode); err != nil {
 		log.Fatalf("Unable to read authorization code: %v", err)
 	}
-
-	tok, err := config.Exchange(context.TODO(), authCode)
+	decodedAuthCode, err := url.QueryUnescape(authCode)
+	if err != nil {
+		log.Fatalf("Unable to decode: %s", authCode)
+	}
+	tok, err := config.Exchange(context.TODO(), decodedAuthCode)
 	if err != nil {
 		log.Fatalf("Unable to retrieve token from web: %v", err)
 	}
