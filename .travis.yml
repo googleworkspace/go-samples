@@ -6,6 +6,7 @@ matrix:
   include:
     - go: 1.11.x
     - go: 1.16.x
+    - go: 1.18.x
 env:
   - GO111MODULE=on
 before_cache:
