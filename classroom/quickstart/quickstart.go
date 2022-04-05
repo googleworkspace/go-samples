@@ -26,8 +26,6 @@ import (
 	"log"
 )
 
-// Retrieve a token, saves the token, then returns the generated client.
-
 func main() {
 	ctx := context.Background()
 	/* Load pre-authorized user credentials from the environment.
