@@ -40,7 +40,7 @@ func createCourse(client *http.Client) {
 		DescriptionHeading: "Welcome to 10th Grade Biology",
 		Description:        "We'll be learning about about the structure of living creatures from a combination of textbooks, guest lectures, and lab work. Expect to be excited!",
 		Room:               "301",
-		OwnerId:            "savat@google.com",
+		OwnerId:            "me",
 		CourseState:        "PROVISIONED",
 	}
 	course, err := srv.Courses.Create(c).Do()
