@@ -19,6 +19,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"golang.org/x/oauth2/google"
 	"log"
 	"net/http"
 
@@ -46,6 +47,19 @@ func createCourse(client *http.Client) {
 	if err != nil {
 		log.Fatalf("Course unable to be created %v", err)
 	}
-	// [END classroom_create_course]
 	fmt.Printf("Created course: %v", course.Id)
+	// [END classroom_create_course]
+}
+func main() {
+	ctx := context.Background()
+	/* Load pre-authorized user credentials from the environment.
+	   TODO(developer) - See https://developers.google.com/identity  and
+	     https://cloud.google.com/docs/authentication/production for
+	    guides on implementing OAuth2 for your application.
+	*/
+	client, err := google.DefaultClient(ctx, classroom.ClassroomCoursesScope)
+	if err != nil {
+		log.Fatalf("Failed Default authentication: %v", err)
+	}
+	createCourse(client)
 }

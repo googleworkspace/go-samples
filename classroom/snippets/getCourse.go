@@ -19,7 +19,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 
@@ -40,21 +39,20 @@ func getCourse(client *http.Client) {
 	if err != nil {
 		log.Fatalf("Course unable to be retrieved %v", err)
 	}
-	// [END classroom_get_course]
 	fmt.Printf("Course with ID %v found.", course.Id)
+	// [END classroom_get_course]
 }
 
 func main() {
-	b, err := ioutil.ReadFile("credentials.json")
+	ctx := context.Background()
+	/* Load pre-authorized user credentials from the environment.
+	   TODO(developer) - See https://developers.google.com/identity  and
+	     https://cloud.google.com/docs/authentication/production for
+	    guides on implementing OAuth2 for your application.
+	*/
+	client, err := google.DefaultClient(ctx, classroom.ClassroomCoursesScope)
 	if err != nil {
-		log.Fatalf("Unable to read client secret file: %v", err)
+		log.Fatalf("Failed Default authentication: %v", err)
 	}
-
-	// If modifying these scopes, delete your previously saved token.json.
-	config, err := google.ConfigFromJSON(b, classroom.ClassroomCoursesScope)
-	if err != nil {
-		log.Fatalf("Unable to parse client secret file to config: %v", err)
-	}
-	client := getClient(config)
 	getCourse(client)
 }
