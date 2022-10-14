@@ -30,7 +30,7 @@ func patchEvent(client *http.Client) {
 	updatedEvent, err := srv.Events.Patch(calendarId, eventID, createdEvent).
 		SendUpdates("all").ConferenceDataVersion(1).Do()
 	if err != nil {
-		log.Fatalf("Unable to update calendar event %v", err)
+		log.Fatalf("Unable to patch calendar event %v", err)
 	}
 
 	fmt.Printf("Event Patched: %s\n", updatedEvent.HtmlLink)
