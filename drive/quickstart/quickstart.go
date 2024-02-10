@@ -48,9 +48,10 @@ func getClient(config *oauth2.Config) *http.Client {
 // Request a token from the web, then returns the retrieved token.
 func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 	authURL := config.AuthCodeURL("state-token", oauth2.AccessTypeOffline)
-	fmt.Printf("Go to the following link in your browser then type the "+
-		"authorization code: \n%v\n", authURL)
+	fmt.Printf("Go to the following link in your browser: "+
+		"\n%v\n\nEnter the authorization code below. If the last page errors you can find the auth code as the query param 'code' of the final oAuth page URL", authURL)
 
+	fmt.Println("\n\nAuthorization Code:")
 	var authCode string
 	if _, err := fmt.Scan(&authCode); err != nil {
 		log.Fatalf("Unable to read authorization code %v", err)
