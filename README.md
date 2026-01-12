@@ -28,3 +28,7 @@ folder by following the instructions in `quickstart/README.md`.
 ## Vet
 
 `go vet ./...`
+
+## Tidy
+
+`go mod tidy`

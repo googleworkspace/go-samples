@@ -51,6 +51,14 @@ Run unit tests (where available):
 go test -v ./...
 ```
 
+### Tidy
+
+Ensure modules are clean:
+
+```bash
+go mod tidy
+```
+
 ## Environment
 
 - **Go Version**: Latest Stable (currently 1.24+)
