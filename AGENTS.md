@@ -65,3 +65,18 @@ go mod tidy
 - **CI Pipelines**:
   - `Test`: Runs build checks via `go build`.
   - `Lint`: Runs `gofmt` and `go vet`.
+
+## Code Snippets
+
+When writing samples that will be referenced in documentation, mark the regions using the following format:
+
+```go
+// [START unique_snippet_id]
+func Example() {
+        // ...
+}
+// [END unique_snippet_id]
+```
+
+- Ensure the ID is unique across the repository.
+- Do not indent the `// [START ...]` and `// [END ...]` tags.
