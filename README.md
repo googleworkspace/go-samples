@@ -17,6 +17,14 @@ folder by following the instructions in `quickstart/README.md`.
 - [Reports Quickstart](https://developers.google.com/admin-sdk/reports/v1/quickstart/go) [![GoDoc](https://godoc.org/google.golang.org/api/admin/reports/v1?status.svg)](https://godoc.org/google.golang.org/api/admin/reports/v1)
 - [Reseller Quickstart](https://developers.google.com/admin-sdk/reseller/v1/quickstart/go) [![GoDoc](https://godoc.org/google.golang.org/api/reseller/v1?status.svg)](https://godoc.org/google.golang.org/api/reseller/v1)
 
+## Build
+
+`go build -v ./...`
+
 ## Format
 
 `go fmt ./...`
+
+## Vet
+
+`go vet ./...`
